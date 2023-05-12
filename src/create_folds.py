@@ -17,7 +17,7 @@ if __name__ == "__main__":
     y = df[target].values
     
     # initiate the kfold class from model_selection module
-    kf = model_selection.StratifiedKFold(n_splits=5)
+    kf = model_selection.KFold(n_splits=5)
     #print(kf)
     # fill the new kfold column
     #does this code works?? x should be df[except y]
