@@ -10,8 +10,6 @@ import argparse
 import model_dispatcher
 
 def run(fold, model):
-    # read the training data with folds
-    #f = open("/mnt/c/Users/Basit Akram/Documents/new-project/input/train_folds.csv")
     df = pd.read_csv(config.TRAINING_FILE)
     df = pd.get_dummies(df)
 
@@ -25,12 +23,12 @@ def run(fold, model):
     # drop the label column from dataframe and convert it to
     # a numpy array by using .values
     # target is label column in the dataframe
-    x_train = df_train.drop("target", axis=1).values
-    y_train = df_train.target.values
+    x_train = df_train.drop("Strength", axis=1).values
+    y_train = df_train.Strength.values
 
     # similarly, for validation, we have
-    x_valid = df_valid.drop("target", axis=1).values
-    y_valid = df_valid.target.values
+    x_valid = df_valid.drop("Strength", axis=1).values
+    y_valid = df_valid.Strength.values
 
     # fetch the model from model_dispatcher
     print(model)
@@ -42,13 +40,13 @@ def run(fold, model):
     preds = clf.predict(x_valid)
 
     # calculate & predict accuracy
-    accuracy = metrics. accuracy_score(y_valid, preds)
-    print(f"Fold={fold}, Accuracy={accuracy}")
+    accuracy = metrics.r2_score(y_valid, preds)
+    print(f"Fold={fold}, R2={accuracy}")
 
-    # save the model
-    joblib.dump(clf,
-                os.path.join(config.MODEL_OUTPUT,f"dt_{fold}.bin")
-    )
+    # # save the model
+    # joblib.dump(clf,
+    #             os.path.join(config.MODEL_OUTPUT,f"dt_{fold}.bin")
+    # )
 
 if __name__ == "__main__":
     # initialize ArguementParser class of argparse

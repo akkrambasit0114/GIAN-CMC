@@ -1,11 +1,20 @@
 from sklearn import tree
 from sklearn import ensemble
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
+from sklearn.ensemble import RandomForestRegressor
+from xgboost import XGBRegressor as XGB
+
 models = {
-    "decision_tree_gini": tree.DecisionTreeClassifier(
-        criterion="gini"
+    "linear_model_LogReg": LinearRegression(
     ),
-    "decision_tree_entropy": tree.DecisionTreeClassifier(
-        criterion="entropy"
+    "linear_model_Lasso": Lasso(
+    
     ),
-    "rf": ensemble.RandomForestClassifier(),
+    "rf": ensemble.RandomForestRegressor(
+    
+    ),
+    "xgboost": XGB(
+    
+    )
  }
