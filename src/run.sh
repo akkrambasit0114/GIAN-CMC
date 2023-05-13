@@ -52,20 +52,47 @@
 # done
 
 
-python3 train.py --fold 0 --model xgboost
-python3 train.py --fold 1 --model xgboost
-python3 train.py --fold 2 --model xgboost
-python3 train.py --fold 3 --model xgboost
-python3 train.py --fold 4 --model xgboost
+# python3 train.py --fold 0 --model xgboost
+# python3 train.py --fold 1 --model xgboost
+# python3 train.py --fold 2 --model xgboost
+# python3 train.py --fold 3 --model xgboost
+# python3 train.py --fold 4 --model xgboost
 
 
-max=10
+# max=1
+# for (( i=1; i <= $max; ++i ))
+# do
+#     sum=0
+#     python3 create_folds.py
+#     max2=5
+#     for (( j=1; j < $max2; ++j ))
+#     do
+#         python3 train.py --fold $j --model xgboost
+#     done
+#     v1=`python3 train.py --fold 0 --model xgboost`
+#     v2=`python3 train.py --fold 1 --model xgboost`
+#     v3=`python3 train.py --fold 2 --model xgboost`
+#     v4=`python3 train.py --fold 3 --model xgboost`
+#     v5=`python3 train.py --fold 4 --model xgboost`
+#     avg=$((v1+v2+v3+v4+v5))
+# done
+
+# echo $sum
+
+
+max=1
 for (( i=1; i <= $max; ++i ))
 do
+    sum=0
     python3 create_folds.py
-    python3 train.py --fold 0 --model xgboost
-    python3 train.py --fold 1 --model xgboost
-    python3 train.py --fold 2 --model xgboost
-    python3 train.py --fold 3 --model xgboost
-    python3 train.py --fold 4 --model xgboost
+    max2=5
+    summ=0
+    for (( j=1; j < $max2; ++j ))
+    do
+        v=$(python3 train.py --fold $j --model xgboost)
+        float_num=$(echo $v| bc -l)
+        summ=$((summ + float_num)) 
+    done
+    echo $summ
 done
+echo $sum

@@ -31,7 +31,7 @@ def run(fold, model):
     y_valid = df_valid.Strength.values
 
     # fetch the model from model_dispatcher
-    print(model)
+    #print(model)
     clf = model_dispatcher.models[model]
     # fit the model on the training data
     clf.fit(x_train, y_train) #####
@@ -41,7 +41,8 @@ def run(fold, model):
 
     # calculate & predict accuracy
     accuracy = metrics.r2_score(y_valid, preds)
-    print(f"Fold={fold}, R2={accuracy}")
+    #print(f"Fold={fold}, R2={accuracy}")
+    print(accuracy)
 
     # # save the model
     # joblib.dump(clf,
