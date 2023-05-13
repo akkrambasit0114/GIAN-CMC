@@ -50,3 +50,22 @@
 #     python3 train.py --fold 3 --model adboost
 #     python3 train.py --fold 4 --model adboost
 # done
+
+
+python3 train.py --fold 0 --model xgboost
+python3 train.py --fold 1 --model xgboost
+python3 train.py --fold 2 --model xgboost
+python3 train.py --fold 3 --model xgboost
+python3 train.py --fold 4 --model xgboost
+
+
+max=10
+for (( i=1; i <= $max; ++i ))
+do
+    python3 create_folds.py
+    python3 train.py --fold 0 --model xgboost
+    python3 train.py --fold 1 --model xgboost
+    python3 train.py --fold 2 --model xgboost
+    python3 train.py --fold 3 --model xgboost
+    python3 train.py --fold 4 --model xgboost
+done

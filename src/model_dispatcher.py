@@ -20,8 +20,12 @@ models = {
     ),
     "xgboost": XGB(
     eta=0.05,
-    gamma=0.5,
-    max_depth=3
+    gamma=0.06,
+    max_depth=15,
+    min_child_weight=1,
+    subsample=0.8,
+    colsample_bytree=0.7,
+    alpha=0.1
     ),
     "gboost":GBR(
     
