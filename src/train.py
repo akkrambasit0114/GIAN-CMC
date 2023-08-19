@@ -8,6 +8,7 @@ from sklearn import metrics
 from sklearn import tree
 import argparse
 import model_dispatcher
+import numpy as np
 
 def run(fold, model):
     df = pd.read_csv(config.TRAINING_FILE)
@@ -39,6 +40,8 @@ def run(fold, model):
     # create predictions for validation samples
     preds = clf.predict(x_valid)
 
+    val_mse = np.mean((preds - y_valid) ** 2)
+    
     # calculate & predict accuracy
     accuracy = metrics.r2_score(y_valid, preds)
     print(f"Model ={model}, Fold={fold}, R2={accuracy}")

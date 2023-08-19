@@ -86,6 +86,7 @@ if __name__ == "__main__":
     #     space.Real(0.01, 1, prior="uniform", name="max_features")
     # ]
     
+    # XGB
     param_space = [
         space.Categorical([0.01, 0.015, 0.025, 0.05, 0.1], name="eta"),
         space.Categorical([0.05, 0.06,0.07,0.08,0.09, 0.025, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0], name="gamma"),
