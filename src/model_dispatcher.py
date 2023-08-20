@@ -31,7 +31,12 @@ models = {
     
     ),
     "ada":ada(
-    
+        base_estimator='deprecated',
+        estimator=None,
+        learning_rate=1.0,
+        loss='linear',
+        n_estimators=50,
+        random_state=123    
     ),
     "SVR":SVR(
     
