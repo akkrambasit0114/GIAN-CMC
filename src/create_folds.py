@@ -3,7 +3,7 @@ from sklearn import model_selection
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("/Users/insomni_.ak/Documents/Machine Learning/GIAN_CMC/input/out.csv")  
+    df = pd.read_csv("/Users/insomni_.ak/Documents/Machine Learning/GIAN_CMC/input/out_sept_06.csv")  
     
     # we create a new column called kfold and fill it with -1
     df["kfold"] = -1

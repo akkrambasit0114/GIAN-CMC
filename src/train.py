@@ -45,12 +45,10 @@ def run(fold, model):
     # calculate & predict accuracy
     accuracy = metrics.r2_score(y_valid, preds)
     print(f"Model ={model}, Fold={fold}, R2={accuracy}")
-    #print(accuracy)
-    #return accuracy 
-    # # save the model
     # joblib.dump(clf,
     #             os.path.join(config.MODEL_OUTPUT,f"dt_{fold}.bin")
     # )
+    # joblib.dump(clf, f"/Users/insomni_.ak/Documents/Machine Learning/GIAN_CMC/models")
 
 if __name__ == "__main__":
     # initialize ArguementParser class of argparse
